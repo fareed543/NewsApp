@@ -14,7 +14,7 @@
 			
 			<!-- Header -->
 			<div id="header-wrapper">
-				<div id="header" class="container">
+				<!--<div id="header" class="container">
 					<h1 id="logo"><a >Bakwas</a></h1>
 					<nav id="nav">
 						<ul>
@@ -25,8 +25,8 @@
 							<li><a href="#">Kollywood</a></li>
 						</ul>
 					</nav>
-				</div>
-				
+				</div>-->
+				<h1 id="logo"><a >Bakwas</a></h1>
 				<!-- Hero -->
 				<section id="hero" class="container">
 					<header>
@@ -34,7 +34,7 @@
 						</header>
 						<p>Want to publish on Bakwas just write us at <a href="mailto:fareed543@gmail.com">fareed543@gmail.com</a>.</p>
 						<ul class="actions">
-							<li><a href="#" class="button">Do Backwas</a></li>
+							<li><a class="button">Do Backwas</a></li>
 						</ul>
 					</section>
 					
@@ -51,7 +51,7 @@
 					<div id="promo-wrapper">
 						<section id="promo">
 							<h2>Encourage Bakwas Team to do More Bakwas</h2>
-							<a href="#" class="button">Rate Us</a>
+							<a  class="button">Rate Us</a>
 						</section>
 					</div>
 					
@@ -88,15 +88,15 @@
 						console.log(item['gsx$sno']['$t']);
 						bakwasData  +='<section class="6u 12u(narrower) feature">';
 						if(item['gsx$image']['$t']!=''){							
-							bakwasData  +='<div class="image-wrapper"><a href="#" class="image featured"><img src="'+item['gsx$image']['$t']+'" alt="" /></a></div>';
+							bakwasData  +='<div class="image-wrapper"><a  class="image featured"><img src="'+item['gsx$image']['$t']+'" alt="" /></a></div>';
 						}
 						if(item['gsx$video']['$t']!=''){
-							bakwasData  +='<div class="image-wrapper"><a href="#" class="image featured"><iframe class="image featured" width="560" height="315" src="https://www.youtube.com/embed/'+item['gsx$video']['$t']+'" frameborder="0" allowfullscreen></iframe></a></div>';
+							bakwasData  +='<div class="image-wrapper"><a  class="image featured"><iframe class="image featured" width="560" height="315" src="https://www.youtube.com/embed/'+item['gsx$video']['$t']+'" frameborder="0" allowfullscreen></iframe></a></div>';
 						}
 						bakwasData  +='<header><h2>'+item['gsx$title']['$t']+'</h2></header>';
 						bakwasData  +='<p>'+item['gsx$description']['$t']+'</p>';
 						//bakwasData  +='<p>'+item['gsx$description']['$t'].substr(1,500)+'</p>';
-						bakwasData  +='<ul class="actions"><li><a href="#" class="button">Like It .?</a></li></ul>';
+						bakwasData  +='<ul class="actions"><li><a  class="button">Like It .?</a></li></ul>';
 						bakwasData  +='</section>';
 					});
 					
