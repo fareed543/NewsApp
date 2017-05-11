@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bakwas</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+			
+			<!-- Header -->
+			<div id="header-wrapper">
+				<div id="header" class="container">
+					<h1 id="logo"><a >Bakwas</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="#">Tollywood</a></li>
+							<li><a href="#">Bollywood</a></li>
+							<li><a href="#"></a></li>
+							<li class="break"><a href="right-sidebar.html">Right Sidebar</a></li>
+							<li><a href="#">Kollywood</a></li>
+						</ul>
+					</nav>
+				</div>
+				
+				<!-- Hero -->
+				<section id="hero" class="container">
+					<header>
+						<h2>Articles , Stories, Everything
+						</header>
+						<p>Want to publish on Bakwas just write us at <a href="mailto:fareed543@gmail.com">fareed543@gmail.com</a>.</p>
+						<ul class="actions">
+							<li><a href="#" class="button">Do Backwas</a></li>
+						</ul>
+					</section>
+					
+				</div>
+				
+				<!-- Features 1 -->
+				<div class="wrapper">
+					<div class="container">
+						<!-- Bakwas Articles -->
+						<div class="row bakwasarticle"></div>
+						<!-- Bakwas Articles -->
+					</div>
+					
+					<div id="promo-wrapper">
+						<section id="promo">
+							<h2>Encourage Bakwas Team to do More Bakwas</h2>
+							<a href="#" class="button">Rate Us</a>
+						</section>
+					</div>
+					
+					<div id="footer-wrapper">
+						<div id="copyright" class="container">
+							<ul class="menu">
+								<li>&copy; Bakwas. All rights reserved.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Scripts -->
+				<script src="assets/js/jquery.min.js"></script>
+				<script src="assets/js/jquery.dropotron.min.js"></script>
+				<script src="assets/js/skel.min.js"></script>
+				<script src="assets/js/util.js"></script>
+				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+				<script src="assets/js/main.js"></script>
+			</body>
+		</html>
+		<script>
+			$(document ).ready(function(){
+				var googleDriveSpreadsheetLink = "https://spreadsheets.google.com/feeds/list/1FpTO9M_5M3quSPi3lCIyhuFGW248ih1Dnza2ABNrRB0/od6/public/values?alt=json";
+				$.getJSON( googleDriveSpreadsheetLink, {
+					tags: "mount rainier",
+					tagmode: "any",
+					format: "json"
+				})
+				.done(function( data ) {
+					var bakwasData = '';
+					$.each( data.feed.entry, function( i, item ) {
+						console.log(item['gsx$sno']['$t']);
+						bakwasData  +='<section class="6u 12u(narrower) feature">';
+						if(item['gsx$image']['$t']!=''){							
+							bakwasData  +='<div class="image-wrapper"><a href="#" class="image featured"><img src="'+item['gsx$image']['$t']+'" alt="" /></a></div>';
+						}
+						if(item['gsx$video']['$t']!=''){
+							bakwasData  +='<div class="image-wrapper"><a href="#" class="image featured"><iframe class="image featured" width="560" height="315" src="https://www.youtube.com/embed/'+item['gsx$video']['$t']+'" frameborder="0" allowfullscreen></iframe></a></div>';
+						}
+						bakwasData  +='<header><h2>'+item['gsx$title']['$t']+'</h2></header>';
+						bakwasData  +='<p>'+item['gsx$description']['$t']+'</p>';
+						//bakwasData  +='<p>'+item['gsx$description']['$t'].substr(1,500)+'</p>';
+						bakwasData  +='<ul class="actions"><li><a href="#" class="button">Like It .?</a></li></ul>';
+						bakwasData  +='</section>';
+					});
+					
+					$(".bakwasarticle").html(bakwasData);
+				});
+				
+			});
+		</script>			
