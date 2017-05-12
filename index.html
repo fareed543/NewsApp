@@ -48,6 +48,14 @@
 						<!-- Bakwas Articles -->
 					</div>
 					
+					<div id="promo-wrapper internetissue" style="display:none">
+						<section id="promo">
+							<h2>No Internet Connection</h2>
+							<a class="button">Try Again</a>
+						</section>
+					</div>
+					
+					
 					<div id="promo-wrapper">
 						<section id="promo">
 							<h2>Encourage Bakwas Team to do More Bakwas</h2>
@@ -76,6 +84,7 @@
 		</html>
 		<script>
 			$(document ).ready(function(){
+				$(".internetissue").hide();
 				var googleDriveSpreadsheetLink = "https://spreadsheets.google.com/feeds/list/1FpTO9M_5M3quSPi3lCIyhuFGW248ih1Dnza2ABNrRB0/od6/public/values?alt=json";
 				$.getJSON( googleDriveSpreadsheetLink, {
 					tags: "mount rainier",
@@ -101,6 +110,9 @@
 					});
 					
 					$(".bakwasarticle").html(bakwasData);
+				})
+				.fail(function() {
+					$(".internetissue").show();
 				});
 				
 			});
